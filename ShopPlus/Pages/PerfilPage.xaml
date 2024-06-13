@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopPlus.Pages.PerfilPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#FFECEB"
+             Title="PerfilPage">
+    <AbsoluteLayout>
+        <ContentView x:Name="SideMenu"
+                 BackgroundColor="#F4F4F4"
+                 WidthRequest="250"
+                 IsVisible="False"
+                 AbsoluteLayout.LayoutFlags="All"
+                 AbsoluteLayout.LayoutBounds="0,0,1,1"
+                 HorizontalOptions="Start"
+                 ZIndex="2000"
+                 TranslationX="-200">
+
+            <!-- Conteúdo do menu -->
+            <StackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Entrar"
+                        Grid.Column="0"
+                        Clicked="GoToLoginPage_Clicked"
+                        BackgroundColor="Transparent"
+                        FontSize="20"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Start"/>
+                    <Button Text="X"
+                        Grid.Column="1"
+                        Clicked="CloseMenu_Clicked"
+                        BackgroundColor="Transparent"
+                        FontSize="25"
+                        TextColor="Black"
+                        FontAttributes="Bold"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Feminino"
+                        Clicked="Feminino_Clicked"
+                        BackgroundColor="Transparent"
+                        FontSize="18"
+                        TextColor="Black"
+                        HorizontalOptions="Start"
+                        Grid.Column="0"/>
+                    <Label Text=">"
+                       FontSize="18"
+                       TextColor="Black"
+                       VerticalOptions="Center"
+                       HorizontalOptions="End"
+                       Grid.Column="1"
+                       Margin="0, 0, 15, 0"/>
+                </Grid>
+                <BoxView BackgroundColor="Black" HeightRequest="1"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Masculino"
+                        Clicked="Masculino_Clicked"
+                        BackgroundColor="Transparent"
+                        FontSize="18"
+                        TextColor="Black"
+                        HorizontalOptions="Start"
+                        Grid.Column="0"/>
+                    <Label Text=">"
+                       FontSize="18"
+                       TextColor="Black"
+                       VerticalOptions="Center"
+                       HorizontalOptions="End"
+                       Grid.Column="1"
+                       Margin="0, 0, 15, 0"/>
+                </Grid>
+                <BoxView BackgroundColor="Black" HeightRequest="1"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Acessórios"
+                            Clicked="Acessorios_Clicked"
+                            BackgroundColor="Transparent"
+                            FontSize="18"
+                            TextColor="Black"
+                            HorizontalOptions="Start"
+                            Grid.Column="0"/>
+                    <Label Text=">"
+                           FontSize="18"
+                           TextColor="Black"
+                           VerticalOptions="Center"
+                           HorizontalOptions="End"
+                           Grid.Column="1"
+                           Margin="0, 0, 15, 0"/>
+                </Grid>
+                <BoxView BackgroundColor="Black" HeightRequest="1"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Sobre Nós"
+                            Clicked="SobreNos_Clicked"
+                            BackgroundColor="Transparent"
+                            FontSize="18"
+                            TextColor="Black"
+                            HorizontalOptions="Start"
+                            Grid.Column="0"/>
+                    <Label Text=">"
+                           FontSize="18"
+                           TextColor="Black"
+                           VerticalOptions="Center"
+                           HorizontalOptions="End"
+                           Grid.Column="1"
+                           Margin="0, 0, 15, 0"/>
+                </Grid>
+                <BoxView BackgroundColor="Black" HeightRequest="1"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Meu Perfil"
+                            Clicked="MeuPerfil_Clicked"
+                            BackgroundColor="Transparent"
+                            FontSize="18"
+                            TextColor="Black"
+                            HorizontalOptions="Start"
+                            Grid.Column="0"/>
+                    <Label Text=">"
+                           FontSize="18"
+                           TextColor="Black"
+                           VerticalOptions="Center"
+                           HorizontalOptions="End"
+                           Grid.Column="1"
+                           Margin="0, 0, 15, 0"/>
+                </Grid>
+                <BoxView BackgroundColor="Black" HeightRequest="1"/>
+            </StackLayout>
+        </ContentView>
+
+        <!-- Restante do conteúdo -->
+        <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+         AbsoluteLayout.LayoutFlags="All">
+            <!-- Seu conteúdo atual -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!-- Header -->
+                <Grid BackgroundColor="#FF6157" HeightRequest="60" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <ImageButton Source="menutab.png" 
+                                 Clicked="MenuTab_Clicked"
+                                 BackgroundColor="Transparent"
+                                 WidthRequest="35"
+                                 HeightRequest="35"
+                                 HorizontalOptions="Start"
+                                 VerticalOptions="Center"
+                                 Margin="10, 0, 0, 0"/>
+
+                    <Label Text="Shop Plus" TextColor="White" FontSize="23" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" Margin="60, 0, 0, 0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoToHomePage_Tapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <ImageButton Source="cestadecompras.png"
+                                 Clicked="Carrinho_Clicked"
+                                 BackgroundColor="Transparent"
+                                 WidthRequest="35"
+                                 HeightRequest="35"
+                                 HorizontalOptions="End"
+                                 VerticalOptions="Center"
+                                 Margin="0, 0, 10, 0"
+                                 Grid.Column="1"/>
+                </Grid>
+            </Grid>
+            <StackLayout Grid.Row="1" Grid.ColumnSpan="2">
+                <Label Text="Informações da conta:" FontSize="22" Margin="15, 20, 0, 0"/>
+                <StackLayout MaximumWidthRequest="330" Margin="0, 20, 0, 0">
+                    <Grid>
+                        <Label Text="Usuário:"/>
+                    </Grid>
+                    <Border HeightRequest="45" BackgroundColor="White">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10, 10, 10, 10" />
+                        </Border.StrokeShape>
+                        <Label Text="{Binding Nome}" TextColor="Black" VerticalOptions="Center" Margin="10, 0, 0, 0" />
+                    </Border>
+
+                    <Grid Margin="0, 30, 0, 0">
+                        <Label Text="E-mail:"/>
+                    </Grid>
+                    <Border HeightRequest="45" BackgroundColor="White">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10, 10, 10, 10" />
+                        </Border.StrokeShape>
+                        <Label Text="{Binding Email}" TextColor="Black" VerticalOptions="Center" Margin="10, 0, 0, 0" />
+                    </Border>
+
+                    <Grid Margin="0, 30, 0, 0">
+                        <Label Text="Senha:"/>
+                    </Grid>
+                    <Border HeightRequest="45" BackgroundColor="White">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10, 10, 10, 10" />
+                        </Border.StrokeShape>
+                        <Label Text="{Binding Senha}" TextColor="Black" VerticalOptions="Center" Margin="10, 0, 0, 0" />
+                    </Border>
+                    <Button Text="EXCLUIR CONTA" BackgroundColor="#FF6157" Clicked="Apagar_Clicked" CornerRadius="10" FontSize="18" FontAttributes="Bold" WidthRequest="220" HeightRequest="50" Margin="0, 30, 0, 0" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

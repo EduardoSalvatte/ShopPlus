@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopPlus.Pages.CatalogoPage"
+             NavigationPage.HasNavigationBar="False"
+             Title="CatalogoPage">
+
+    <AbsoluteLayout>
+        <!-- Side Menu -->
+        <ContentView x:Name="SideMenu"
+                    BackgroundColor="#F4F4F4"
+                    WidthRequest="250"
+                    IsVisible="False"
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    HorizontalOptions="Start"
+                    ZIndex="2000"
+                    TranslationX="-200">
+
+            <!-- Conteúdo do menu -->
+            <StackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Entrar"
+                           Grid.Column="0"
+                           Clicked="GoToLoginPage_Clicked"
+                           BackgroundColor="Transparent"
+                           FontSize="20"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Start"/>
+                    <Button Text="X"
+                           Grid.Column="1"
+                           Clicked="CloseMenu_Clicked"
+                           BackgroundColor="Transparent"
+                           FontSize="25"
+                           TextColor="Black"
+                           FontAttributes="Bold"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Feminino"
+                           Clicked="Feminino_Clicked"
+                           BackgroundColor="Transparent"
+                           FontSize="18"
+                           TextColor="Black"
+                           HorizontalOptions="Start"
+                           Grid.Column="0"/>
+                    <Label Text=">"
+                          FontSize="18"
+                          TextColor="Black"
+                          VerticalOptions="Center"
+                          HorizontalOptions="End"
+                          Grid.Column="1"
+                          Margin="0, 0, 15, 0"/>
+                </Grid>
+                <BoxView BackgroundColor="Black" HeightRequest="1"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Masculino"
+                           Clicked="Masculino_Clicked"
+                           BackgroundColor="Transparent"
+                           FontSize="18"
+                           TextColor="Black"
+                           HorizontalOptions="Start"
+                           Grid.Column="0"/>
+                    <Label Text=">"
+                          FontSize="18"
+                          TextColor="Black"
+                          VerticalOptions="Center"
+                          HorizontalOptions="End"
+                          Grid.Column="1"
+                          Margin="0, 0, 15, 0"/>
+                </Grid>
+                <BoxView BackgroundColor="Black" HeightRequest="1"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Acessórios"
+                           Clicked="Acessorios_Clicked"
+                           BackgroundColor="Transparent"
+                           FontSize="18"
+                           TextColor="Black"
+                           HorizontalOptions="Start"
+                           Grid.Column="0"/>
+                    <Label Text=">"
+                          FontSize="18"
+                          TextColor="Black"
+                          VerticalOptions="Center"
+                          HorizontalOptions="End"
+                          Grid.Column="1"
+                          Margin="0, 0, 15, 0"/>
+                </Grid>
+                <BoxView BackgroundColor="Black" HeightRequest="1"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Sobre Nós"
+                           Clicked="SobreNos_Clicked"
+                           BackgroundColor="Transparent"
+                           FontSize="18"
+                           TextColor="Black"
+                           HorizontalOptions="Start"
+                           Grid.Column="0"/>    
+                    <Label Text=">"
+                          FontSize="18"
+                          TextColor="Black"
+                          VerticalOptions="Center"
+                          HorizontalOptions="End"
+                          Grid.Column="1"
+                          Margin="0, 0, 15, 0"/>
+                </Grid>
+                <BoxView BackgroundColor="Black" HeightRequest="1"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Meu Perfil"
+                           Clicked="MeuPerfil_Clicked"
+                           BackgroundColor="Transparent"
+                           FontSize="18"
+                           TextColor="Black"
+                           HorizontalOptions="Start"
+                           Grid.Column="0"/>
+                    <Label Text=">"
+                          FontSize="18"
+                          TextColor="Black"
+                          VerticalOptions="Center"
+                          HorizontalOptions="End"
+                          Grid.Column="1"
+                          Margin="0, 0, 15, 0"/>
+                </Grid>
+                <BoxView BackgroundColor="Black" HeightRequest="1"/>
+            </StackLayout>
+        </ContentView>
+
+        <!-- Restante do conteúdo -->
+        <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                     AbsoluteLayout.LayoutFlags="All">
+            <!-- Seu conteúdo atual -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!-- Header -->
+                <Grid BackgroundColor="#FF6157" HeightRequest="60" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <ImageButton Source="menutab.png" 
+                     Clicked="MenuTab_Clicked"
+                     BackgroundColor="Transparent"
+                     WidthRequest="35"
+                     HeightRequest="35"
+                     HorizontalOptions="Start"
+                     VerticalOptions="Center"
+                     Margin="10, 0, 0, 0"/>
+
+                    <Label Text="Shop Plus" TextColor="White" FontSize="23" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" Margin="60, 0, 0, 0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoToHomePage_Tapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <ImageButton Source="cestadecompras.png"
+                     Clicked="Carrinho_Clicked"
+                     BackgroundColor="Transparent"
+                     WidthRequest="35"
+                     HeightRequest="35"
+                     HorizontalOptions="End"
+                     VerticalOptions="Center"
+                     Margin="0, 0, 10, 0"
+                     Grid.Column="1"/>
+                </Grid>
+            </Grid>
+
+            <Label Text="Catálogo:" TextColor="Black" FontAttributes="Bold" FontSize="20" Padding="20"/>
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Primeiro produto -->
+                <Frame CornerRadius="10" WidthRequest="150" HeightRequest="210" HorizontalOptions="Start" Margin="30, 0, 0, 0" Grid.Row="0" Grid.Column="0">
+                    <StackLayout>
+                        <ImageButton x:Name="CamisaMasculinaButton" Source="camisamasculinaquadrada.png" Clicked="CamisaMasculina_Clicked" />
+                        <Label Text="Camisa" FontSize="16" TextColor="Black" />
+                        <Label Text="R$199,99" FontSize="16" TextColor="Black" FontAttributes="Bold" />
+                        <Label Text="ou 3x de R$67" FontSize="14" TextColor="Black" />
+                    </StackLayout>
+                </Frame>
+
+                <!-- Segundo produto -->
+                <Frame CornerRadius="10" WidthRequest="150" HeightRequest="210" HorizontalOptions="End" Margin="0, 0, 30, 0" Grid.Row="0" Grid.Column="1">
+                    <StackLayout>
+                        <ImageButton x:Name="NikeButton" Source="tenisnikequadrado.png" Clicked="Nike_Clicked" />
+                        <Label Text="Tênis Nike" FontSize="16" TextColor="Black" />
+                        <Label Text="R$419,90" FontSize="16" TextColor="Black" FontAttributes="Bold" />
+                        <Label Text="ou 5x de R$110" FontSize="14" TextColor="Black" />
+                    </StackLayout>
+                </Frame>
+
+                <!-- Terceiro produto -->
+                <Frame CornerRadius="10" WidthRequest="150" HeightRequest="210" HorizontalOptions="Start" Margin="30, 10, 0, 0" Grid.Row="1" Grid.Column="0">
+                    <StackLayout>
+                        <ImageButton x:Name="RelogioButton" Source="relogioquadrado.png" Clicked="Relogio_Clicked" />
+                        <Label Text="Relógio Prata" FontSize="16" TextColor="Black" />
+                        <Label Text="R$99,90" FontSize="16" TextColor="Black" FontAttributes="Bold" />
+                        <Label Text="ou 2x de R$50" FontSize="14" TextColor="Black" />
+                    </StackLayout>
+                </Frame>
+
+                <!-- Quarto produto -->
+                <Frame CornerRadius="10" WidthRequest="150" HeightRequest="210" HorizontalOptions="End" Margin="0, 10, 30, 0" Grid.Row="1" Grid.Column="1">
+                    <StackLayout>
+                        <ImageButton x:Name="AdidasButton" Source="tenisadidasquadrado.png" Clicked="Adidas_Clicked" />
+                        <Label Text="Tênis Adidas" FontSize="16" TextColor="Black" />
+                        <Label Text="R$379,49" FontSize="16" TextColor="Black" FontAttributes="Bold" />
+                        <Label Text="ou 4x de R$95" FontSize="14" TextColor="Black" />
+                    </StackLayout>
+                </Frame>
+
+                <!-- Quinto produto -->
+                <Frame CornerRadius="10" WidthRequest="150" HeightRequest="210" HorizontalOptions="Start" Margin="30, 10, 0, 0" Grid.Row="2" Grid.Column="0">
+                    <StackLayout>
+                        <ImageButton x:Name="PerfumeButton" Source="perfume.png" Clicked="Perfume_Clicked" />
+                        <Label Text="Perfume" FontSize="16" TextColor="Black" Padding="0, 2, 0, 3"/>
+                        <Label Text="R$669,00" FontSize="16" TextColor="Black" FontAttributes="Bold" />
+                        <Label Text="ou 6x de R$112" FontSize="14" TextColor="Black" />
+                    </StackLayout>
+                </Frame>
+
+                <!-- Sexto produto -->
+                <Frame CornerRadius="10" WidthRequest="150" HeightRequest="210" HorizontalOptions="End" Margin="0, 10, 30, 0" Grid.Row="2" Grid.Column="1">
+                    <StackLayout>
+                        <ImageButton x:Name="CamisaFemininaButton" Source="camisafemininaquadrada.png" Clicked="CamisaFeminina_Clicked" />
+                        <Label Text="Blusinha" FontSize="16" TextColor="Black" />
+                        <Label Text="R$79,90" FontSize="16" TextColor="Black" FontAttributes="Bold" />
+                        <Label Text="ou 2x de R$40" FontSize="14" TextColor="Black" />
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

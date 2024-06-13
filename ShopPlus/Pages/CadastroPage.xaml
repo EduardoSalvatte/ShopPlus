@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopPlus.Pages.CadastroPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#FFECEB"
+             Title="CadastroPage">
+    
+    <VerticalStackLayout Margin="15" Padding="15" Spacing="5">
+
+        <Grid HeightRequest="60" Margin="0, -20, 0, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Source="logopng.png" HeightRequest="80" WidthRequest="80" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,-170,0"/>
+
+            <Label Grid.Column="1" Text="Shop Plus" TextColor="#FF6157" FontSize="24" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center" Margin="20, 0, 0, 0">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnShopPlusLabelTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+
+        <Label Text="CADASTRE-SE" TextColor="Black" VerticalOptions="Center" FontAttributes="Bold" HorizontalOptions="Center" FontSize="32" Margin="0, 60, 0, 0" />
+
+        <Label x:Name="lblUsuario" Text="Usuário:" Margin="0, 20, 0, 0"/>
+        <Frame
+            BackgroundColor="Transparent"
+            CornerRadius="10"
+            BorderColor="#757575" 
+            HasShadow="False"
+            Padding="0"
+            HeightRequest="50">
+            <Entry x:Name="txtUsuario" Placeholder="Usuário" Keyboard="Text" Text="{Binding Nome}" Margin="10, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Center" />
+        </Frame>
+
+        <Label x:Name="lblEmail" Text="E-mail:" Margin="0, 10, 0, 0"/>
+        <Frame
+            BackgroundColor="Transparent"
+            CornerRadius="10"
+            BorderColor="#757575" 
+            HasShadow="False"
+            Padding="0"
+            HeightRequest="50">
+            <Entry x:Name="txtEmail" Placeholder="E-mail" Text="{Binding Email}" Keyboard="Email" Margin="10, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Center" />
+        </Frame>
+
+        <Label x:Name="lblSenha" Text="Senha:" Margin="0, 10, 0, 0"/>
+        <Frame
+            BackgroundColor="Transparent"
+            CornerRadius="10" 
+            BorderColor="#757575" 
+            HasShadow="False"
+            Padding="0"
+            HeightRequest="50">
+            <Entry Placeholder="Digite sua Senha" x:Name="txtSenha" Text="{Binding Senha}" IsPassword="True" Margin="10, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Center" />
+        </Frame>
+
+        <Button Text="CRIAR CONTA" TextColor="White" FontAttributes="Bold" x:Name="btnCadastrar" Clicked="btnCadastrar_Clicked" BackgroundColor="#FF6157" Margin="0, 20, 0, 10" />
+
+        <Label Text="Já tem uma conta?" Margin="0, 3, 0, 0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Já tem uma conta? " />
+                    <Span Text="ENTRAR" TextColor="Blue" FontAttributes="Bold" TextDecorations="Underline">
+                        <Span.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnEntrarClicked" />
+                        </Span.GestureRecognizers>
+                    </Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+    </VerticalStackLayout>
+</ContentPage>
